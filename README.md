@@ -1,14 +1,24 @@
 # clj-cli-progress
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library for displaying progress bars in cli applications
 
 ## Usage
 
-FIXME
+
+```clojure
+(ns somens
+  (:require [clj-cli-progress.core :as progressbar]))
+  
+(defn some-function []
+  (let [my-collection (range 10000)
+        wrapped-collection (progressbar/progress-bar-wrapped-collection my-collection "my-task")]
+    (doseq [a wrapped-collection]
+      (do-some-stuff a))))
+```
 
 ## License
 
-Copyright © 2019 FIXME
+Copyright © 2019 Victor Gil
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
